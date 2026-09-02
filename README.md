@@ -4,6 +4,79 @@ Hallucination-aware parameter-efficient adaptation of BLIP-2 and InstructBLIP
 on VQAv2. The project keeps code, datasets, model caches, environments, and
 experiment outputs on the AutoDL data disk.
 
+## Results at a glance
+
+The figures below are generated directly from the tracked CSV summaries in
+`reports/`. They distinguish fixed-subset development results from the full
+VQAv2 validation run and retain negative findings instead of selecting only
+favorable benchmarks.
+
+| Evaluation | Reference | E6 / best decoding | Outcome |
+| --- | ---: | ---: | ---: |
+| VQAv2 fixed 1k, overall | 59.76 (E0) | 71.29 (E6) | +11.53 pp |
+| VQAv2 full validation, overall | 70.61 (E15 direct) | 71.62 (E19 reranked) | +1.01 pp |
+| POPE accuracy | 83.94 (zero-shot) | 84.93 (E6) | +0.99 pp |
+| CHAIRs, lower is better | 31.80 (zero-shot) | 43.40 (E6) | 11.60 pp worse |
+| HallusionBench question accuracy | 54.30 (zero-shot) | 52.70 (E6) | -1.60 pp |
+
+### VQAv2 development progression
+
+![VQAv2 model and training-stage progression](reports/figures/core_vqa_progress.png)
+
+*Figure 1: The staged progression reaches 71.29 on the fixed 1,000-example
+VQAv2 subset, 11.53 points above the BLIP-2 zero-shot starting point. The
+comparison includes architecture, prompt, module, and training-scale changes;
+the heatmap exposes their different effects across answer types.*
+
+### Full-validation decoding
+
+![Direct decoding versus short-answer reranking](reports/figures/full_validation_decoding.png)
+
+*Figure 2: Short-answer reranking raises full-validation accuracy from 70.61
+to 71.62, driven by a yes/no gain from 86.14 to 88.86. It also reduces invalid
+yes/no outputs from 3.37% to 0.22% across all 214,354 validation questions.*
+
+### Hallucination benchmarks
+
+![POPE, CHAIR, and HallusionBench comparison](reports/figures/hallucination_benchmarks.png)
+
+*Figure 3: E6 improves POPE accuracy, recall, and F1, but worsens both CHAIR
+hallucination rates and most HallusionBench aggregates. The mixed transfer
+result is why E6 is treated as a VQA checkpoint, not a universal
+hallucination-reduction model.*
+
+### Grounding trade-offs
+
+![Grounding and VQAv2 trade-off experiments](reports/figures/grounding_tradeoff.png)
+
+*Figure 4: Grounding additions produce small, method-dependent trade-offs
+rather than a decisive improvement. Across the three-seed E14 comparison, the
+grounding variant changes the mean by only +0.007 VQAv2 points and +0.067
+grounding points, with overlapping standard-deviation bars.*
+
+### Alignment-objective ablations
+
+![Alignment objective and matched-control ablations](reports/figures/alignment_ablation.png)
+
+*Figure 5: No tested alignment objective improves both VQAv2 accuracy and the
+image-dependence diagnostic relative to E6. Matched controls are shown as
+squares, objective runs as circles, and the shaded upper-right quadrant marks
+the desired joint improvement region.*
+
+The complete tables, experimental protocol, and limitations are in
+[`reports/FINAL_EXPERIMENT_SUMMARY.md`](reports/FINAL_EXPERIMENT_SUMMARY.md).
+To regenerate every figure as README-ready PNG plus vector SVG and PDF:
+
+```bash
+python -m pip install -e '.[plots]'
+python scripts/plot_readme_figures.py
+```
+
+## Test status
+
+Last verified on 2026-09-02: 74 tests passed, Ruff reported no violations, and
+all five figure groups regenerated successfully from the committed CSV files.
+
 ## Server layout
 
 ```text

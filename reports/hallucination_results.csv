@@ -1,0 +1,7 @@
+benchmark,split_or_metric,model,samples,accuracy,precision,recall,f1,yes_ratio,invalid_ratio,chair_s,chair_i,object_recall,question_pair,figure,easy_pair,hard_pair,false_positive_rate,false_negative_rate
+POPE,macro three strategies,InstructBLIP zero-shot,9000,83.944,91.281,75.311,82.473,41.367,0.000,,,,,,,,,
+POPE,macro three strategies,E6 LLM LoRA r8,9000,84.933,89.911,78.956,84.023,44.022,0.000,,,,,,,,,
+CHAIR,COCO val2014 seed42,InstructBLIP zero-shot,500,,,,,,,31.800,10.929,62.155,,,,,,
+CHAIR,COCO val2014 seed42,E6 LLM LoRA r8,500,,,,,,,43.400,14.529,66.980,,,,,,
+HallusionBench,full,InstructBLIP zero-shot,1129,54.296,,,,41.984,0.000,,,,18.681,24.855,52.967,46.977,39.225,54.339
+HallusionBench,full,E6 LLM LoRA r8,1129,52.702,,,,59.876,0.000,,,,16.703,23.121,56.264,41.860,56.279,35.331

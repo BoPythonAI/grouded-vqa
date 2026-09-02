@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grounded-vqa"
+version = "0.1.0"
+description = "Hallucination-aware PEFT for BLIP-2 and InstructBLIP on VQAv2"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "accelerate>=1.2",
+  "bitsandbytes>=0.46",
+  "datasets>=3.2",
+  "huggingface-hub>=0.27",
+  "numpy>=1.26",
+  "peft>=0.14",
+  "pillow>=10.4",
+  "pyyaml>=6.0",
+  "requests>=2.32",
+  "safetensors>=0.4",
+  "tqdm>=4.67",
+  "transformers>=4.47,<6",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3",
+  "ruff>=0.9",
+]
+
+[project.scripts]
+grounded-vqa-smoke = "grounded_vqa.cli.smoke:main"
+grounded-vqa-inspect = "grounded_vqa.cli.inspect_model:main"
+grounded-vqa-eval = "grounded_vqa.cli.evaluate_predictions:main"
+grounded-vqa-download = "grounded_vqa.cli.download_vqav2:main"
+grounded-vqa-train = "grounded_vqa.cli.train_lora:main"
+grounded-vqa-train-mismatch = "grounded_vqa.cli.train_mismatch:main"
+grounded-vqa-train-complementary = "grounded_vqa.cli.train_complementary:main"
+grounded-vqa-mine-complementary = "grounded_vqa.cli.mine_complementary:main"
+grounded-vqa-train-mixed-qformer = "grounded_vqa.cli.train_mixed_qformer:main"
+grounded-vqa-build-coco-grounding = "grounded_vqa.cli.build_coco_grounding:main"
+grounded-vqa-build-hard-negatives = "grounded_vqa.cli.build_hard_negatives:main"
+grounded-vqa-mine-hard-negatives = "grounded_vqa.cli.mine_hard_negatives:main"
+grounded-vqa-build-error-grounding = "grounded_vqa.cli.build_error_grounding:main"
+grounded-vqa-build-mcq = "grounded_vqa.cli.build_multiple_choice:main"
+grounded-vqa-eval-grounding = "grounded_vqa.cli.evaluate_grounding:main"
+grounded-vqa-eval-mcq = "grounded_vqa.cli.evaluate_multiple_choice:main"
+grounded-vqa-eval-pope = "grounded_vqa.cli.evaluate_pope:main"
+grounded-vqa-compare-pope = "grounded_vqa.cli.compare_pope:main"
+grounded-vqa-eval-chair = "grounded_vqa.cli.evaluate_chair:main"
+grounded-vqa-compare-chair = "grounded_vqa.cli.compare_chair:main"
+grounded-vqa-eval-hallusionbench = "grounded_vqa.cli.evaluate_hallusionbench:main"
+grounded-vqa-compare-hallusionbench = "grounded_vqa.cli.compare_hallusionbench:main"
+grounded-vqa-train-grounding-qformer = "grounded_vqa.cli.train_grounding_qformer:main"
+grounded-vqa-train-distilled-grounding = "grounded_vqa.cli.train_distilled_grounding:main"
+grounded-vqa-train-negative-distillation = "grounded_vqa.cli.train_negative_distillation:main"
+grounded-vqa-predict = "grounded_vqa.cli.predict_vqav2:main"
+grounded-vqa-rerank-short = "grounded_vqa.cli.rerank_short_answers:main"
+grounded-vqa-diagnose-alignment = "grounded_vqa.cli.diagnose_alignment:main"
+grounded-vqa-validate-data = "grounded_vqa.cli.validate_data:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"grounded_vqa.evaluation" = ["chair_synonyms.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

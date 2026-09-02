@@ -1,0 +1,10 @@
+run,method,vqa_overall,normal_accuracy,mismatch_accuracy,mismatch_drop,mismatch_answer_change,blank_drop,blank_answer_change,noise_drop,noise_answer_change,complementary_margin,complementary_preference
+E6,E6 baseline,71.29,71.49,36.74,34.75,65.9,34.46,66.5,36.77,68.9,1.6952,92.7
+E8a,VQA continuation control,71.46,71.43,37.10,34.33,63.4,33.74,64.1,36.60,67.0,,
+E8b,Random image mismatch loss,70.75,70.99,36.87,34.12,64.4,33.91,64.4,36.18,67.3,,
+E9a,Complementary-pair control,71.10,70.82,37.17,33.65,66.1,33.74,66.0,36.22,68.8,,
+E9b,Complementary log-probability loss,71.31,71.21,37.08,34.13,65.9,34.26,66.4,36.35,68.5,,
+E10a,Hard-pair control,71.43,71.63,37.06,34.57,65.0,33.73,63.1,35.32,67.0,1.4720,92.9
+E10b,Hard-pair log-probability loss,71.24,71.32,36.84,34.48,65.2,33.69,63.9,34.95,66.8,1.4582,92.8
+E11a,Mixed 70/30 Q-Former control best,71.29,71.49,36.74,34.75,65.9,34.46,66.5,36.77,68.9,1.6952,92.7
+E11b,Mixed 70/30 Q-Former contrastive best,71.29,71.49,36.74,34.75,65.9,34.46,66.5,36.77,68.9,1.6952,92.7

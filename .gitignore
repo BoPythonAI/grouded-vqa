@@ -1,0 +1,24 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+.env
+
+# Large artifacts must remain on the server data disk. Anchor these paths to the
+# repository root so source packages such as src/grounded_vqa/data are tracked.
+/data/
+/models/
+/outputs/
+/logs/
+/cache/
+/artifacts/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+wget-log*

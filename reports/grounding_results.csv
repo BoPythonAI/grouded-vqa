@@ -1,0 +1,13 @@
+run,method,seed,vqa_overall,grounding_overall,existence_positive,existence_negative,count_accuracy,grounding_false_yes,grounding_false_no,count_mae
+E6,E6 baseline,42,71.29,85.90,83.75,99.25,63.50,0.75,16.25,0.510
+E12a,Q-Former VQA control,48,71.38,86.00,83.75,99.25,64.00,0.75,16.25,0.505
+E12b,30% generic COCO grounding,48,70.89,86.80,83.75,99.00,68.50,1.00,16.25,0.455
+E13a,Refined VQA control,50,71.32,85.90,83.75,99.25,63.50,0.75,16.25,0.510
+E13b,10% error-driven grounding,50,70.85,85.50,83.25,99.00,63.00,1.00,16.75,0.515
+E13c,20% error-driven grounding,50,70.74,85.40,83.25,99.00,62.50,1.00,16.75,0.520
+E14a-51,Distilled rehearsal control,51,71.35,85.70,83.75,99.25,62.50,0.75,16.25,0.520
+E14b-51,Distilled rehearsal + grounding,51,71.31,86.00,83.75,99.25,64.00,0.75,16.25,0.505
+E14a-52,Distilled rehearsal control,52,71.29,86.00,83.75,99.25,64.00,0.75,16.25,0.505
+E14b-52,Distilled rehearsal + grounding,52,71.29,86.00,83.75,99.25,64.00,0.75,16.25,0.505
+E14a-53,Distilled rehearsal control,53,71.29,86.00,83.75,99.25,64.00,0.75,16.25,0.505
+E14b-53,Distilled rehearsal + grounding,53,71.35,85.90,83.75,99.25,63.50,0.75,16.25,0.510

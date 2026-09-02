@@ -1,0 +1,3 @@
+run,model,adapter,examples,accuracy,random_baseline,number,other,yes_no,two_option,four_option,invalid_output_rate
+E16a,InstructBLIP Flan-T5-XL,none,5000,83.46,34.345,70.17,91.06,77.96,77.96,86.75,0.00
+E16b,InstructBLIP Flan-T5-XL,E6 LLM LoRA r8,5000,85.12,34.345,75.89,92.15,78.97,78.97,88.79,0.00
